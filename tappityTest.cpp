@@ -141,10 +141,10 @@ TEST(tappityTest, Accuracy_Testing_Same_Numbers) // Pass
 	ASSERT_EQ(result, 100);
 }
 
-TEST(tappityTest, Accuracy_Testing_Different_Numbers) // Pass
+TEST(tappityTest, Accuracy_Testing_Different_Numbers) // Fail
 {
-	tappity obj("1000");
-	obj.entry("1000");
+	tappity obj("132");
+	obj.entry("123");
 	int result = obj.accuracy();
 	ASSERT_EQ(result, 100);
 }
