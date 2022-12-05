@@ -8,6 +8,8 @@
 class tappity
 {
     private:
+        std::string referenceTap;
+        std::string inputTap;
 
     public:
         //Constructor sets the reference phrase

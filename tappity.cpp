@@ -1,17 +1,23 @@
 #include "tappity.h"
+#include <cmath>
 /**
  * Class for tappity
 **/
+#include<iostream>
+#include<string.h>
+using namespace std;
 
 //Constructor sets the reference phrase
 tappity::tappity(std::string reference)
 {
+  referenceTap = reference;
 }
 
 //Provide the input to be compared to the reference. Before this 
 //function is called, the input should be considered an empty string
 void tappity::entry(std::string input)
 {
+  inputTap = input;
 }
 
 //Compares the length of the reference to that of the input and
@@ -19,7 +25,7 @@ void tappity::entry(std::string input)
 //same length
 int tappity::length_difference()
 {
-  return 0;
+  return (abs(referenceTap.length() - inputTap.length()));
 }
 
 //Compares the content of the reference to that of the input and
@@ -36,5 +42,23 @@ int tappity::length_difference()
 //locations in another string that has 16 characters, the accuracy is 50.
 double tappity::accuracy()
 {
-  return 0;
+  
+  int exact = 0;
+  int max = std::max(referenceTap.length(), inputTap.length());
+  int min = std::min(referenceTap.length(), inputTap.length());
+
+  if (referenceTap == "" && inputTap == "") {
+    return 100;
+  }
+
+  for (int x = 0; x < min; x++) {
+    if (referenceTap[x] == inputTap[x]) {
+      exact++;
+    }
+  }
+
+  return (exact/double(max))*100.0;
+
 }
+
+//  docker run --mount type=bind,source="C:\Users\andre\CSCI430\TappityPlus/",target=/usr/src -it gtest sh
