@@ -25,7 +25,7 @@ void tappity::entry(std::string input)
 //same length
 int tappity::length_difference()
 {
-  return (abs(referenceTap.length() - inputTap.length()));
+  return std::abs((int)referenceTap.length() - (int)inputTap.length());
 }
 
 //Compares the content of the reference to that of the input and
@@ -62,3 +62,4 @@ double tappity::accuracy()
 }
 
 //  docker run --mount type=bind,source="C:\Users\andre\CSCI430\TappityPlus/",target=/usr/src -it gtest sh
+//  docker run --mount type=bind,source="C:\Users\andre\School\CSCI430\tappityPro/",target=/usr/src -it gtest sh
